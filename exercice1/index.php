@@ -2,6 +2,7 @@
     $ip = $_SERVER['REMOTE_ADDR'];
     $userAgent = $_SERVER['HTTP_USER_AGENT'] . "\n\n";
     $name = $_SERVER['SERVER_NAME'];
+    var_dump($_SERVER);
 ?>
 
 <!DOCTYPE html>

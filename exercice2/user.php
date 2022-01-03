@@ -1,5 +1,8 @@
 <?php
     session_start();
+    $firstname = $_SESSION['firstname'];
+    $lastname = $_SESSION['lastname'];
+    $age = $_SESSION['age'];
 ?>
 
 <!DOCTYPE html>
@@ -23,9 +26,9 @@
             <div class="card">    
                 <div class="card-body text-center">
                     <h5 class="card-title mb-3">Rappel de vos informations</h5>
-                    <p class="card-text"><b>Nom</b> : <?=$_SESSION['lastname'];?></p>
-                    <p class="card-text"><b>Prénom</b> : <?=$_SESSION['firstname'];?></p>
-                    <p class="card-text"><b>Age</b> : <?=$_SESSION['age'];?></p>
+                    <p class="card-text"><b>Nom</b> : <?=$lastname;?></p>
+                    <p class="card-text"><b>Prénom</b> : <?=$firstname;?></p>
+                    <p class="card-text"><b>Age</b> : <?=$age;?></p>
                 </div>
             </div>
         </div>

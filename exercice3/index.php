@@ -1,5 +1,10 @@
 <?php
-    setcookie('lastname');
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $username = htmlspecialchars($_POST['username']);
+        $password = htmlspecialchars($_POST['password']);
+        setcookie('username', $username, time()+3600*24, '/');
+        setcookie('password', $password, time()+3600*24, '/');
+    }     
 ?>
 
 <!DOCTYPE html>
@@ -18,26 +23,17 @@
     <div class="row justify-content-center">
         <div class="col-lg-6">
             <div class="text-warning text-center fs-3 p-5">
-                <form action="user.php" method="GET">
+                <form action="" method="POST">
                     <div class="mb-3">
-                        <label for="lastname" class="form-label">lastname</label>
-                        <input type="text" class="form-control" name="lastname">
+                        <label for="">Login</label>
+                        <input type="text" name="username">
                     </div>
                     <div class="mb-3">
-                        <label for="firstname" class="form-label">firstname</label>
-                        <input type="text" class="form-control" name="firstname">
+                        <label for="firstname" class="form-label">Mot de passe</label>
+                        <input type="password" name="password">
                     </div>
                     <button type="submit" class="btn btn-warning">Envoyer</button> 
                 </form>
-    
-        <?php
-        // Après avoir rechargé la page :
-        if (isset($_COOKIE['CompteurPage'])) {
-          foreach ($_COOKIE['CompteurPage'] as $name => $value) {
-            echo "$name : $value <br>";
-          }
-        }
-        ?>
             </div>
         </div>
     </div>
